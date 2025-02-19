@@ -36,7 +36,12 @@ class Calculator:
         The version of the calculator that doesn't follow recommended programming practices.
         """
 
+    """ This method declares a variable.
+        Then this method ensures addition is required and stores the sum of addition.
+        Then the method returns the sum of addition stored in the variable.
+    """
     def add(x, y):
+
         return x + y
 
     def subtract(x, y):
