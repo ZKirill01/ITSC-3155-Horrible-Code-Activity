@@ -1,3 +1,6 @@
+from functools import total_ordering
+
+
 class Calculator:
     def __init__(self):
         # Runs the user input menu and displays the calculation result
@@ -40,12 +43,25 @@ class Calculator:
         Then this method ensures addition is required and stores the sum of addition.
         Then the method returns the sum of addition stored in the variable.
     """
-    def add(x, y):
+    def add(x, y, flag):
+        total = 0
+        if flag:
+            total = x + y
+        else:
+            print("Addition failed.")
+        return total
 
-        return x + y
-
-    def subtract(x, y):
-        return x - y
+    """ This method declares a variable.
+        Then this method ensures addition is required and stores the difference of variables.
+        Then the method returns the difference stored in the variable.
+    """
+    def subtract(x, y, flag):
+        total = 0
+        if flag:
+            total = x + y
+        else:
+            print("Subtraction failed.")
+        return total
 
     # This method
     # demonstrates the easiest
