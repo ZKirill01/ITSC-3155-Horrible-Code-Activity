@@ -2,49 +2,22 @@ from functools import total_ordering
 
 
 class Calculator:
-    def __init__(self):
-        # Runs the user input menu and displays the calculation result
-        operation = {
-            "1": ("+", add),
-            "2": ("-", subtract),
-            "3": ("*", multiply),
-            "4": ("/", divide)
-        }
+    """
+    The version of the calculator that doesn't follow recommended programming practices.
+    """
 
-        while True:
-            print("\nSelect operation:")
-            print("\n\t1.Add")
-            print("\t2.Subtract")
-            print("\t3.Multiply")
-            print("\t4.Divide")
-            print("\t5.Quit")
+    starting_value = 0
 
-            choice = input("\nEnter choice(1/2/3/4/5): ")
-
-            if choice == "5":
-                print("\nQuitting...")
-                break
-
-            elif choice in operation:
-                num1, num2 = get_numbers()
-                character, function = operation[choice]
-                result = function(num1, num2)
-
-                if result is not None:
-                    print(f"\n{num1} {character} {num2} = {result}")
-
-            else:
-                print("Invalid input, try again.")
-        """
-        The version of the calculator that doesn't follow recommended programming practices.
-        """
+    # The constructor initializes starting value!
+    def __init__(self, starting_value):
+        self.starting_value = 0
 
     """ This method declares a variable.
         Then this method ensures addition is required and stores the sum of addition.
         Then the method returns the sum of addition stored in the variable.
     """
     def add(x, y, flag):
-        total = 0
+        total = starting_value
         if flag:
             total = x + y
         else:
@@ -56,7 +29,7 @@ class Calculator:
         Then the method returns the difference stored in the variable.
     """
     def subtract(x, y, flag):
-        total = 0
+        total = starting_value
         if flag:
             total = x + y
         else:
@@ -69,14 +42,29 @@ class Calculator:
     # multiplicat -
     # ion
     def multiply(x, y):
-        total = 0
+        total = starting_value
         for i in range(x):
             total += y
         return total
 
+    """ This method does something. """
     def divide(x, y):
         if y == 0:
             print("\nCannot divide by zero")
             return None
         return x / y
+
+    """Find a number the user wants, flag to make sure they want it."""
+    def pick_nums(flag):
+        if flag:
+            while True:
+                num1 = float(input("\nEnter first number: "))
+                num2 = float(input("Enter second number: "))
+                return num1, num2
+        else:
+            print("Hey this won't work.")
+
+# Test run of the calculator
+calculator = Calculator(99999999)
+print("welcome to the calculator")
 
